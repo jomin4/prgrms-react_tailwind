@@ -1,14 +1,22 @@
+import { Routes, Route } from 'react-router-dom'
+import Sidebar from './components/Sidebar.jsx'
+import Home from './pages/Home.jsx'
+import LessonPage from './pages/LessonPage.jsx'
+
 function App() {
   return (
-    <div className="p-10 text-center">
-      <h1 className="text-3xl font-bold text-blue-600">
-        환경 세팅 완료 🎉
-      </h1>
-      <p className="mt-4 text-gray-600">
-        React + Tailwind 로컬 환경이 준비되었습니다.
-      </p>
+    <div className="flex min-h-screen bg-gray-50 text-left text-gray-800">
+      <Sidebar />
+      <main className="ml-72 flex-1 px-8 py-10">
+        <div className="mx-auto max-w-3xl">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/lesson/:id" element={<LessonPage />} />
+          </Routes>
+        </div>
+      </main>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
